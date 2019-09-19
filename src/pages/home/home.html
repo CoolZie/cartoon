@@ -1,17 +1,174 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>Home</ion-title>
-  </ion-navbar>
-</ion-header>
+<ion-content style="background-color: black" *ngIf="orientation=='portrait-primary'">
+  <ion-grid ion-fixed id="video" style="background-color:black">
+    <ion-row>
+      <ion-col col-5>
+        <img alt="logo" style="text-align: start" height="40" src="../../assets/logo.png">
+      </ion-col>
+      <ion-col col-5 style="text-align: end">
+        <img alt="logo" (click)="toEnglish()" *ngIf="lang==='fr'" height="40"
+          src="https://www.countryflags.io/gb/flat/64.png">
+        <img alt="logo" (click)="toFrench()" *ngIf="lang==='en'" height="40"
+          src="https://www.countryflags.io/fr/flat/64.png">
+      </ion-col>
+      <ion-col col-2 style="display: inline; text-align: end">
+        <div>
+          <div (click)="search()">
+            <ion-icon style="color:#e67e22; font-size:38px;" name="search"></ion-icon>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
 
-<ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+  </ion-grid>
+  <div style="margin-top:60px !important">
+    <ion-refresher slot="fixed" (ionRefresh)="doRefresher($event)">
+      <ion-refresher-content style="background-color:white; color: #FAFAFA">
+      </ion-refresher-content>
+    </ion-refresher>
+    <ion-row>
+      <ion-col col-12 col-md-6 col-lg-4 col-xl-3 id="fd" *ngIf="!isAbonned" style="background-color: yellow">
+        <p style="color:black; font-size:18px; text-align: center;margin:0px!important">
+          {{ 'compte.noabonned' | translate }}
+        </p>
+        <p
+          style="color:black; font-size:18px; text-align: center;margin:0px!important; font-size: 16px; font-weight: bold">
+          {{ 'compte.noabonned_' | translate }}
+        </p>
+      </ion-col>
+      <ion-col col-12 col-md-6 col-lg-4 col-xl-3 id="fd">
+        <div style=" padding-right:5px">
+          <!-- <video id="videoPlayer" #videoPlayer width="100%" height="250px" controls autoplay ></video>  -->
+          <vg-player>
+            <vg-overlay-play></vg-overlay-play>
+            <vg-buffering></vg-buffering>
+            <vg-scrub-bar>
+              <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+              <vg-scrub-bar-buffering-time></vg-scrub-bar-buffering-time>
+            </vg-scrub-bar>
+            <vg-controls [vgAutohide]="true" [vgAutohideTime]="1.5">
+              <vg-play-pause></vg-play-pause>
+              <vg-playback-button></vg-playback-button>
+              <vg-time-display vgProperty="current" vgFormat="mm:ss"></vg-time-display>
+
+              <vg-scrub-bar style="pointer-events: none;"></vg-scrub-bar>
+
+              <!-- <vg-time-display vgProperty="left" vgFormat="mm:ss"></vg-time-display> -->
+              <vg-time-display vgProperty="total" vgFormat="mm:ss"></vg-time-display>
+
+              <!-- <vg-track-selector></vg-track-selector> -->
+              <!-- <vg-mute></vg-mute> -->
+              <vg-volume></vg-volume>
+
+              <vg-fullscreen></vg-fullscreen>
+            </vg-controls>
+            <video [src]="link_video" #videoPlayer [vgMedia]="media" width="100%" style="height:100%" #media preload="auto"
+              autoplay></video>
+          </vg-player>
+        </div>
+      </ion-col>
+      <ion-col col-12 col-md-6 col-lg-4 col-xl-3>
+        <div style="text-align: center;  position: relative" *ngIf="!loader_current">
+          <div class="lds-ring">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        </div>
+        <div *ngIf="loader_current">
+          <ion-row item-center style="padding-left:5px; padding-right:5px" *ngIf="!isAbonned">
+            <button ion-button full >  <!-- (click)="paiement()"> -->
+              {{ 'home.pour_abonner' | translate }}
+            </button>
+          </ion-row>
+          <ion-item style="padding-top:10px;background-color:transparent;" no-lines>
+            <h2 style="color:#e67e22; font-weight: bold;float: left ">
+              {{titre}}
+            </h2>
+            <p style="color:#e67e22;float: right;"> {{ 'home.vue' | translate }} : {{vues}}</p>
+          </ion-item>
+          <ion-item no-lines style="background-color:transparent;">
+            <p style="color:white;white-space :normal">
+              {{description}}
+            </p>
+            <p style="color:#e67e22; float:right; font-style: italic"> {{date_create}} </p>
+          </ion-item>
+          <ion-item no-lines style="background-color:transparent;">
+            <p style="color:#e67e22;float: left"> {{ 'home.genre' | translate }} : {{genre}}</p>
+            <p style="color:#e67e22;float:right">{{ 'home.auteur' | translate }} : {{auteur}} </p>
+          </ion-item>
+          <div style="border:1px solid white"></div>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row style="padding-left:5px; padding-right:5px" >  <!-- (click)="paiement()"> -->
+      <ion-slides autoplay="5000" loop>
+        <ion-slide>
+          <img *ngIf="isFrench" src="./../../assets/imgs/general_fr.png" alt="">
+          <img *ngIf="!isFrench" src="./../../assets/imgs/general_en.png" alt="">
+        </ion-slide>
+        <ion-slide>
+          <img *ngIf="isFrench" src="./../../assets/imgs/artime_fr.png" alt="">
+          <img *ngIf="!isFrench" src="./../../assets/imgs/artime_en.png" alt="">
+        </ion-slide>
+      </ion-slides>
+    </ion-row>
+    <ion-row>
+      <ion-col col-12 col-md-6 col-lg-4 col-xl-3 *ngIf="loarder_videos">
+        <ion-list>
+          <div *ngFor="let  video of videos; let i = index">
+            <ion-item (tap)="play(video)"
+              style="background-color:black; height: 100%; margin-top:5px;margin-bottom:5px">
+              <ion-row>
+                <ion-col col-5>
+                  <ion-thumbnail item-start>
+                    <img src="https://elitoon.com/template/assets/img/preview/{{video.img_video}}"
+                      style="width:1000px; height: 90px;">
+                  </ion-thumbnail>
+                </ion-col>
+                <ion-col col-7 style="margin:auto;">
+                  <p style="white-space: nowrap; overflow: hidden;color:#e0e0e0;text-overflow: ellipsis;font-weight: bold">{{video.titre}}
+                  </p>
+                  <p id="desc"
+                    style="color:#e67e22; white-space :normal; max-height: 2.3em; overflow:hidden; text-overflow: ellipsis">
+                    {{video.description}}</p>
+                  <div>
+                    <p style="color:#e0e0e0; float: left;">{{ 'home.vue' | translate }} : {{video.vues}}</p>
+                    <p style="color:#ece9e7; float: right;"> {{ 'home.genre' | translate }} : {{video.nom_genre}}</p>
+                  </div><br />
+                  <p style="color:#c5c4c3">{{video.date_create}}</p>
+                  <p style="color:#c5c4c3">{{video.auteur}}</p>
+                </ion-col>
+              </ion-row>
+              <!-- <div style="border:1px solid #FAFAFA; border-left: 0px; border-right: 0px">
+                <hr>
+              </div> -->
+            </ion-item>
+            <ion-row *ngIf="i==4"
+             style="padding-left:5px; padding-right:5px; padding-top:5px;padding-bottom:10px" >  <!-- (click)="paiement()"> -->
+              <img *ngIf="isFrench" height="100px"  src="./../../assets/imgs/general_fr.png" alt="">
+              <img *ngIf="!isFrench" src="./../../assets/imgs/general_en.png" alt="">
+            </ion-row>
+          </div>
+
+        </ion-list>
+        <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+          <ion-infinite-scroll-content></ion-infinite-scroll-content>
+        </ion-infinite-scroll>
+      </ion-col>
+      <ion-col col-12 col-md-6 col-lg-4 col-xl-3 *ngIf="!loarder_videos">
+        <div style="text-align: center;  position: relative">
+          <div class="lds-ring">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+  </div>
+
+
+
 </ion-content>

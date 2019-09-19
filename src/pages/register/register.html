@@ -1,0 +1,103 @@
+<!--
+  Generated template for the LoginPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+
+<ion-content class="login-content" padding style="background-color: black; height: 100%;">
+  
+  <ion-row>
+      <div style="display: inline-flex" *ngIf="lang==='fr'" (click)="toEnglish()">
+        <span>
+          <img alt="logo"   height="40" src="https://www.countryflags.io/gb/flat/64.png">
+        </span>
+        <span style="color:white;font-size: 18px; font-weight: bold; padding-top: 10px;margin-left:5px">English</span>
+      </div>
+      <div style="display: inline-flex ; width: 100%;" *ngIf="lang==='en'" (click)="toFrench()">
+          <span>
+              <img alt="logo"   height="40" src="https://www.countryflags.io/fr/flat/64.png">
+          </span>
+          <span style="color:white;font-size: 18px; font-weight: bold; padding-top: 10px;margin-left:5px">Français</span>
+        </div>
+      <div>
+      </div>
+    </ion-row>
+  
+  <ion-row class="logo-row">
+    <ion-col>
+      <img style="text-align: center; margin-top:30px" src="../../assets/logo.png" width="70%" />
+    </ion-col>
+  </ion-row>
+  <div style="text-align: center; ; position: relative" *ngIf="loading">
+      <div class="lds-ring">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+  <div *ngIf="!loading">``
+  <form>
+    <ion-row>
+      <ion-col>
+        <ion-list inset>
+          <!-- <ion-item no-lines class="item_class">
+            <ion-select text-center style="width:100%;max-width: 100%" interface="popover" (click)="reseatcountry()"
+              (ionChange)="getcountry($event)" placeholder="Choisir votre pays">
+              <ion-option value="{{countrie.alpha3Code}}" *ngFor="let  countrie of countries">
+                (+{{countrie.callingCodes[0]}}) {{countrie.name}}
+              </ion-option>
+            </ion-select>
+          </ion-item> -->
+          <ion-item no-lines class="item_class">
+            <ion-input text-center type="email" style="color:#d3a202; font-weight: bold" class=""  [(ngModel)]="login"
+              placeholder="{{ 'register.email' | translate }}" name="email" required></ion-input>
+          </ion-item>
+          <ion-item no-lines class="item_class">
+            <ion-input text-center type="{{string_password}}" style="color:#d3a202; font-weight: bold" class="" [(ngModel)]="password"
+              placeholder="{{ 'register.password' | translate }}" name="password" required></ion-input>
+          </ion-item>
+          <ion-item no-lines class="item_class">
+            <ion-input text-center type="{{string_password}}" style="color:#d3a202; font-weight: bold" class="" [(ngModel)]="cpassword"
+              placeholder="{{ 'register.cpassword' | translate }}" name="cpassword" required></ion-input>
+          </ion-item>
+          <div style="padding-top: 15px">
+              <input type="checkbox" (click)="voir()">
+              <span style="color: white">
+                {{ 'login.showpassword' | translate }}
+              </span>
+
+            </div>
+          
+          <!-- <div style="display: inline-flex ; width: 100%;" class=" item_class country" text-center>
+              <span style="margin:13px auto">
+                <img src="{{current?.flag}}" width="24px" alt="">
+                <span style="font-size:1.6rem; margin-top:-10px;color:#d3a202; font-weight: bold ">+{{current?.callingCodes[0]}}</span>
+              </span>
+              <ion-input type="number" style="color:#d3a202; font-weight: bold;font-size: 1.6rem" [(ngModel)]="numero"
+                placeholder="Exemple : 01010101" name="numero" required></ion-input>
+            </div> -->
+        </ion-list>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col class="signup-col">
+        <button ion-button class="submit-btn" (tap)="register()" type="submit" full>{{ 'register.register' | translate }}</button>
+      </ion-col>
+    </ion-row>
+    <ion-row style="padding-top:40px">
+      <ion-col>
+        <button style="font-size:18px" ion-button class="register-btn" (tap)="connecter()" block clear>
+          <u>
+            {{ 'register.connect' | translate }}
+          </u>
+        </button>
+      </ion-col>
+    </ion-row>
+
+  </form>
+</div>
+</ion-content>

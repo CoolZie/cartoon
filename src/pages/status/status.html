@@ -1,0 +1,48 @@
+<ion-content class="login-content" padding style="background-color: black; height: 100%;">
+  <ion-row>
+    <ion-col col-12>
+      <img style="text-align: center; margin-top:10px" src="../../assets/logo.png" width="70%" />
+    </ion-col>
+  </ion-row>
+  <ion-row *ngIf="!succes">
+    <ion-col col-12 >
+      <img style="text-align: center; margin-top:10px" width="20%" src="../../assets/cancel.png" />
+    </ion-col>
+    <ion-col col-12 style="color: white" >
+      <p style="font-size: 40px; font-weight: bold; margin: 0px!important">{{ 'status.fail' | translate }}</p>
+    </ion-col>
+    <ion-col col-12 style="color: white" >
+      <p style="font-size: 20px; font-weight: bold; margin: 0px!important">
+        {{ 'status.failText' | translate }}
+      </p>
+    </ion-col>
+    <ion-col class="signup-col" col-12 style="margin:0px!important;padding:0px!important">
+      <button ion-button class="submit-btn" (tap)="_paiement()"  full>{{ 'status.btn_tryAgain' | translate }}</button>
+    </ion-col>
+    <ion-col class="signup-col" col-12 style="margin:0px!important;padding:0px!important">
+      <button ion-button class="submit-btn" (tap)="goHome()"  full>{{ 'status.btn_goHome' | translate }}</button>
+    </ion-col>
+  </ion-row>
+
+  <ion-row *ngIf="succes"> 
+    <ion-col col-12 >
+      <img style="text-align: center; margin-top:10px" src="../../assets/checked.png" width="20%" />
+    </ion-col>
+    <ion-col col-12 style="color: white" >
+      <p style="font-size: 40px; font-weight: bold; margin: 0px!important"> {{ 'status.succes' | translate }}</p>
+    </ion-col>
+    <ion-col col-12 style="color: white" >
+      <p style="font-size: 20px; font-weight: bold; margin: 0px!important">
+        {{ 'status.succes_text' | translate }}
+      </p>
+    </ion-col>
+    <ion-col col-12 style="color: white; margin-top: 10px" >
+      <p style="font-size: 20px; font-weight: bold; margin: 0px!important">
+        {{ 'status.succes_Atext' | translate}} {{datefin}}
+      </p>
+    </ion-col>
+    <ion-col class="signup-col">
+      <button ion-button (tap)="goHome()" class="submit-btn"  full>{{ 'status.btn_goHome' | translate }}</button>
+    </ion-col>
+  </ion-row>
+</ion-content>

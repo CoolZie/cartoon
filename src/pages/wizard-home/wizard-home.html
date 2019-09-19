@@ -1,0 +1,153 @@
+<ion-content style="height:100%">
+
+
+  <ion-slides #wizardSlider (ionSlideDidChange)="slideHasChanged()" pager="none">
+    <ion-slide>
+      <img *ngIf="isFrench" src="./../../assets/imgs/artime_fr.png" alt="">
+      <img *ngIf="!isFrench" src="./../../assets/imgs/artime_en.png" alt="">
+      <ion-row>
+        <ion-col col-12>
+          <h4 text-center style="color:wheat">{{ 'wizart.or' | translate }}</h4>
+          <h4 text-center style="color:wheat">{{ 'wizart.money' | translate }}</h4>
+        </ion-col>
+        <ion-col col-12>
+          <div style=" text-align: center; top: 200px; position: relative" *ngIf="!paiements">
+            <div class="lds-ring">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
+        </ion-col>
+        <ion-col col-12 *ngFor="let  paiement of paiements" style="padding-left:20px; padding-right:20px">
+
+          <ion-item no-lines (click)="changeSlide(1,paiement)" style="background-color:black; margin-bottom:10px; ">
+            <ion-row>
+              <ion-col col-4>
+                <ion-thumbnail item-start>
+                  <img src="{{paiement.logo}}">
+                </ion-thumbnail>
+              </ion-col>
+              <ion-col col-8 style="margin:auto;" text-wrap>
+                <p style="font-size:18px;color:white ">
+                  {{paiement.libelle_mode_paiement}}
+                </p>
+              </ion-col>
+            </ion-row>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-slide>
+    <ion-slide>
+      <img [src]="specific_pub" [width]="width" [height]="width/5" alt="">
+      <ion-row>
+        <ion-col col-12>
+          <h4 text-center style="color:wheat">{{ 'wizart.operateur' | translate }}</h4>
+        </ion-col>
+        <ion-col col-12>
+          <ion-item *ngFor="let  operateur of operateurs" no-lines (click)="changeSlide(1,operateur)"
+            style="background-color:black; margin-bottom:10px">
+            <ion-row>
+              <ion-col col-4>
+                <ion-thumbnail item-start>
+                  <img src="{{operateur.logoperateur}}">
+                </ion-thumbnail>
+              </ion-col>
+              <ion-col col-8 style="margin:auto;" text-wrap>
+                <p style="font-size:19px;color:white ">
+                  {{operateur.libelle_operateur}}
+                </p>
+              </ion-col>
+            </ion-row>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-slide>
+    <ion-slide>
+
+      <img [src]="specific_pub" [width]="width" [height]="width/5" alt="">
+
+      <div *ngIf='!bool_paiement'>
+        <ion-col col-12>
+          <div style=" text-align: center; top: 200px; position: relative">
+            <div class="lds-ring">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
+        </ion-col>
+      </div>
+      <div *ngIf='bool_paiement'>
+        <ion-row style="padding-top:50px">
+          <ion-col col-12>
+            <ion-item no-lines>
+              <ion-input text-center type="text" style="color:#000000; font-weight: bold" readonly
+                value="{{periode}} {{ 'wizart.days' | translate }} --{{montant}} ({{devise}})" name="email" required>
+              </ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row text-center>
+
+          <ion-col col-12>
+            <ion-item no-lines>
+              <ion-input text-center type="number" style="color:#d3a202; font-weight: bold"
+                [(ngModel)]="validation.numero_paiement" placeholder="{{ 'wizart.num_paie_place' | translate }}"
+                name="payement" required></ion-input>
+            </ion-item>
+            <div *ngIf="!numero_paiement">
+              <p>{{ 'wizart.alert_paie' | translate }}</p>
+            </div>
+          </ion-col>
+        </ion-row>
+        <!--<div style="border:1px solid #FAFAFA; border-left: 0px; border-right: 0px; margin-top:40px"></div>
+                     <ion-row style="padding-top:40px">
+                      <ion-col col-12>
+                          <p>{{ 'wizart.num_code_texte' | translate }}</p>
+                      </ion-col>
+                    </ion-row>
+                    <ion-row text-center>
+                        <ion-col col-2 >
+                          <p style="font-size:20px; padding-top:10px">+{{validation.code_pays}}</p>
+                        </ion-col>
+                      <ion-col col-10>
+                          <ion-item  no-lines>
+                              <ion-input  text-center type="tel" style="color:#d3a202; font-weight: bold"  [(ngModel)]="validation.numero_reception"  placeholder=" {{ 'wizart.num_code_place' | translate }}" name="payement"  required></ion-input>
+                          </ion-item>
+                          <div *ngIf="!numero_reception">
+                            <p >{{ 'wizart.alert_code' | translate }}</p>
+                          </div>
+                      </ion-col>
+                    </ion-row> -->
+        <ion-row>
+          <ion-col col-12 style="padding-top:30px" (click)="paiement()">
+            <button ion-button full>
+              {{ 'wizart.payez' | translate }}
+            </button>
+          </ion-col>
+        </ion-row>
+      </div>
+
+
+
+
+    </ion-slide>
+
+  </ion-slides>
+
+  <button ion-button button-clear clear style="float:right; color:white;position: static; bottom: 0px;right: 0px;"
+    (click)="changeSlide(-1)" *ngIf="show('prev')">
+    < {{ 'wizart.precedent' | translate }} </button> <!-- <button ion-button button-clear clear
+      style="float:right; color:black" (click)="changeSlide(1)" *ngIf="show('next')">
+      Suivant >
+  </button> -->
+  <button (click)="fermer()" ion-button button-clear clear style="color:white;position:static; bottom: 0px;">
+    {{ 'wizart.annuler' | translate }}
+  </button>
+  <!-- <button ion-button button-clear clear  style="float:right; color:black" (click)="onEvent('onFinish')" *ngIf="show('finish')">
+      Terminer
+    </button> -->
+</ion-content>

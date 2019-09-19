@@ -1,0 +1,117 @@
+page-wizard-home {
+
+  ion-content{
+    background: linear-gradient(to left, #e67e22 0%, #3a3001 100%);
+  }
+        ion-slide {
+          //padding: 10px;
+          margin-top: 0px; 
+        }
+      
+        .swiper-pagination {
+          bottom: 50px !important;
+      
+          .swiper-pagination-bullet {
+            background: theme-colors('mainColors', 'accent') !important;
+          }
+        }
+        .swiper-slide {
+          display: -webkit-box;
+          -webkit-box-align: start;
+          
+      }
+      h4 {
+        margin: 0px
+    }
+    p {
+     margin: 0px;
+     font-weight: bold;
+     color:white
+  }
+       
+
+        [wizard-title] {
+          color: #f7f7f7;
+          font-size: 14px !important;
+          letter-spacing: 1.2px;
+          text-transform: uppercase;
+          font-weight: bold;
+      }
+
+      .item-md ion-avatar img {
+        border-radius: 0%;
+      }
+
+     
+      .item-md ion-icon[item-left] + .item-inner {
+        margin-left: 5px;
+      }
+
+      [margin-top]{
+        margin-top: 2px !important;
+    }
+
+    section{
+      position: absolute;
+      top: 40%;
+      width: 100%;
+      z-index: 1000;
+    }
+  
+    .reset{
+      position: absolute;
+      top: 30%;
+      width: 100%;
+      z-index: 1000;
+    }
+    
+  ion-item {
+    border-radius: 10px !important;
+    padding-left: 30px !important;
+    font-size: 0.9em;
+    margin-bottom: 10px;
+    border: 1px solid #ffffff;
+    border-bottom: 0px !important;
+    box-shadow: none !important;
+}
+.scroll-content {
+  padding-bottom: 0 !important;
+}
+.lds-ring {
+  display: inline-block;
+  position: relative;
+  width: 64px;
+  height: 64px;
+}
+.lds-ring div {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 51px;
+  height: 51px;
+  margin: 6px;
+  border: 6px solid #fff;
+  border-radius: 50%;
+  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: #fff transparent transparent transparent;
+}
+.lds-ring div:nth-child(1) {
+  animation-delay: -0.45s;
+}
+.lds-ring div:nth-child(2) {
+  animation-delay: -0.3s;
+}
+.lds-ring div:nth-child(3) {
+  animation-delay: -0.15s;
+}
+@keyframes lds-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+  
+
+}

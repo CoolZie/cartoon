@@ -1,0 +1,113 @@
+<ion-content class="login-content" padding style="background-color: black">
+
+  <ion-row>
+    <div style="display: inline-flex ;" *ngIf="lang==='fr'" (click)="toEnglish()">
+      <span>
+        <img alt="logo" height="40" src="https://www.countryflags.io/gb/flat/64.png">
+      </span>
+      <span style="color:white;font-size: 18px; font-weight: bold; padding-top: 10px;margin-left:5px">English</span>
+    </div>
+    <div style="display: inline-flex ; width: 100%;" *ngIf="lang==='en'" (click)="toFrench()">
+      <span>
+        <img alt="logo" height="40" src="https://www.countryflags.io/fr/flat/64.png">
+      </span>
+      <span style="color:white;font-size: 18px; font-weight: bold; padding-top: 10px;margin-left:5px">Français</span>
+    </div>
+    <div>
+    </div>
+  </ion-row>
+
+  <ion-row class="logo-row">
+    <ion-col>
+      <img style="text-align: center; margin-top:30px" src="../../assets/logo.png" width="70%" />
+    </ion-col>
+  </ion-row>
+  <div style="text-align: center; position: relative" *ngIf="loading">
+    <div class="lds-ring">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+  <div *ngIf="!loading">``
+    <form>
+      <ion-row>
+        <ion-col>
+          <ion-list inset>
+            <!-- <ion-item  no-lines class="item_class">
+              <ion-select text-center style="width:100%;max-width: 100%" interface="popover" (click)="reseatcountry()" (ionChange)="getcountry($event)" placeholder="Choisir votre pays">
+                <ion-option value="{{countrie.alpha3Code}}" *ngFor="let  countrie of countries">(+{{countrie.callingCodes[0]}}) {{countrie.name}}
+                </ion-option>
+              </ion-select>
+            </ion-item> -->
+            <!-- <div style="display: inline-flex ; width: 100%;" class="item_class item_class country" text-center>
+              <span style="margin:13px auto">
+                <img src="https://www.countryflags.io/gb/flat/64.png" width="24px" alt="">
+              </span>
+              <ion-select text-center style="width:100%;max-width: 100%" interface="popover"  (ionChange)="getlangue($event)">
+                <ion-option value="{{langue.code}}" *ngFor="let  langue of langues">{{langue.name}}
+                </ion-option>
+              </ion-select>
+            </div> -->
+            <ion-item no-lines class="item_class">
+              <ion-input text-center type="text" style="color:#d3a202; font-weight: bold;font-size: 1.6rem"
+                [(ngModel)]="numero" placeholder="{{ 'login.input_login' | translate }}" name="numero" required>
+              </ion-input>
+            </ion-item>
+            <ion-item no-lines class="item_class">
+              <ion-input text-center type="{{string_password}}" style="color:#d3a202;font-weight: bold" [(ngModel)]="code"
+                placeholder="{{ 'login.code_secret' | translate }}" id="myInput" name="password" required></ion-input>
+
+            </ion-item>
+            <div style="padding-top: 15px">
+              <input type="checkbox" (click)="voir()">
+              <span style="color: white">
+                {{ 'login.showpassword' | translate }}
+              </span>
+
+            </div>
+            <script>
+              function myFunction() {
+                var x = document.getElementById("myInput");
+                if (x.type === "password") {
+                  x.type = "text";
+                } else {
+                  x.type = "password";
+                }
+              }
+            </script>
+
+
+          </ion-list>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="signup-col">
+          <button ion-button class="submit-btn" (tap)="Connect(numero,code)" type="submit"
+            full>{{ 'login.connecter' | translate }}</button>
+        </ion-col>
+
+
+      </ion-row>
+      <ion-row style="display:flex; justify-content:center">
+        <p style="color:white; padding-right: 6px">{{ 'login.loss' | translate }}</p><br>
+        <p style="color:white; font-weight: bold" (click)="lostPassword()"> {{ 'login.action_loss' | translate }}</p>
+      </ion-row>
+      <ion-row style="padding-top:20px">
+        <ion-col>
+          <button ion-button style="font-size:18px" class="register-btn" (tap)="register()" block clear>
+            <u>
+              {{ 'login.creer_login' | translate }}
+            </u>
+          </button>
+        </ion-col>
+      </ion-row>
+    </form>
+  </div>
+
+
+
+
+
+</ion-content>

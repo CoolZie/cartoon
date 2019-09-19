@@ -1,17 +1,73 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      Contact
-    </ion-title>
-  </ion-navbar>
-</ion-header>
+<ion-content style="background-color: black" padding>
+  <ion-row>
+    <ion-col col-11 style="text-align:center">
+      <img alt="logo" height="40" src="../../assets/logo.png">
+    </ion-col>
+  </ion-row><br />
 
-<ion-content>
-  <ion-list>
-    <ion-list-header>Follow us on Twitter</ion-list-header>
-    <ion-item>
-      <ion-icon name="ionic" item-start></ion-icon>
-      @ionicframework
+  <ion-row *ngIf="status">
+    <div *ngIf="status">
+      <ion-row style="padding-bottom: 10px">
+        <p style="color:white; font-size:18px; text-align: center; margin:0px!important">
+          {{ 'compte.finabonned' | translate }} : {{datefin}}
+        </p>
+      </ion-row>
+    </div>
+    <div *ngIf="!status">
+      <p style="color:white; font-size:18px; text-align: center;margin:0px!important">
+        {{ 'compte.noabonned' | translate }}
+      </p>
+      <ion-col col-12 item-center style="padding-left:5px; padding-right:5px">
+        <button ion-button full (click)="paiement()">
+          {{ 'home.pour_abonner' | translate }}
+        </button>
+      </ion-col>
+    </div>
+
+  </ion-row>
+
+  <ion-row>
+    <!-- <div style="border:1px solid #FAFAFA; width: 100% "></div>
+    <ion-item no-lines class="item_" (click)="paiement()">
+      <ion-icon item-start ios="ios-information-circle" md="md-information-circle"></ion-icon>
+      {{ 'compte.sabonner' | translate }}
+    </ion-item> -->
+    <div style="border:1px solid #FAFAFA; width: 100% "></div>
+    <ion-item no-lines class="item_" (click)="langue()">
+      <ion-icon item-start ios="ios-globe" md="md-globe"></ion-icon>
+      {{ 'compte.langue' | translate }}
     </ion-item>
-  </ion-list>
+    <div style="border:1px solid #FAFAFA; width: 100% "></div>
+    <ion-item no-lines class="item_" (click)="page()">
+      <ion-icon item-start name="logo-facebook"> </ion-icon>
+      {{ 'compte.like' | translate }}
+    </ion-item>
+    <div style="border:1px solid #FAFAFA; width: 100% "></div>
+    <ion-item no-lines class="item_" (click)="sharing()">
+      <ion-icon item-start ios="ios-share" md="md-share"> </ion-icon>
+      {{ 'compte.share' | translate }}
+    </ion-item>
+    <div style="border:1px solid #FAFAFA; width: 100% "></div>
+    <ion-item no-lines class="item_" (click)="apropos()">
+      <ion-icon item-start ios="ios-information-circle" md="md-information-circle"></ion-icon>
+      {{ 'compte.apropos' | translate }}
+    </ion-item>
+    <div style="border:1px solid #FAFAFA; width: 100% "></div>
+    <ion-item no-lines text-word class="item_" (click)="condition()">
+      <ion-icon item-start ios="ios-magnet" md="md-magnet"></ion-icon>
+      <p
+        style="color:#e67e22; white-space :normal; max-height: 2.3em; overflow:hidden; text-overflow: ellipsis; color:#e67e22;font-size: 20px ">
+        {{ 'compte.condition' | translate }}
+      </p>
+    </ion-item>
+    <div style="border:1px solid #FAFAFA; width: 100% "></div>
+    <ion-item no-lines class="item_" (click)="logout()">
+      <ion-icon item-start ios="ios-log-out" md="md-log-out"> </ion-icon>
+      {{ 'compte.deconnecter' | translate }}
+    </ion-item>
+    <div style="border:1px solid #FAFAFA; width: 100% "></div>
+  </ion-row>
+
+
+
 </ion-content>

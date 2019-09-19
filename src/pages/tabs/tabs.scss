@@ -1,0 +1,21 @@
+page-tabs {
+  .tabs-md .tab-button[aria-selected=true] {
+      color:  #e67e22;
+      font-weight: bold;
+      padding: 0;
+      border-bottom: 6px solid #e67e22;
+  }
+  .tabs-md .tab-button[aria-selected=false] {
+    color:  #e67e22;
+    font-weight: bold;
+    padding: 0;
+}
+
+  .tabs-md .tab-button {
+      font-weight: bold;
+      color: white;
+      padding: 0;
+      background-color: black;
+  }
+
+}

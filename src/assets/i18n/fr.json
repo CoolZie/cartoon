@@ -1,0 +1,76 @@
+{
+  "tabs": {
+    "acceuil": "Acceuil",
+    "apropos": "A Propos",
+    "compte": "Compte"
+  },
+  "home": {
+    "vue": "Vues",
+    "genre": "Genre",
+    "auteur": "Auteur",
+    "pour_abonner": "Cliquez ici pour vous abonnez"
+  },
+  "compte": {
+    "langue": "Langue",
+    "like": "Aimez la page Facebook",
+    "share": "Partagez Elitoon",
+    "apropos": "A Propos",
+    "deconnecter": "Se Déconnecter",
+    "sabonner": "S'abonner",
+    "condition": "Conditions générales d'utilisations",
+    "finabonned": "Fin de votre abonnement le ",
+    "noabonned": "Vous n'êtes pas encore abonné!!!",
+    "noabonned_": "Pour voir l'intégralité des vidéos abonnez vous"
+  },
+  "search": {
+    "searchbar": "Récherchez Une Vidéo",
+    "annuler": "Annuler"
+  },
+  "wizart": {
+    "or": "OU",
+    "money": "MOBILE MONEY",
+    "operateur": "Séléctionnez l'operateur  de paiement",
+    "num_paie_place": "Numéro de paiement",
+    "alert_paie": "Numéro de paiement réquis !!!!",
+    "alert_code": "Numéro de reception de code réquis !!!!",
+    "num_code_place": "Numéro de reception SMS",
+    "num_code_texte": "NUMERO DE RECEPTION DU CODE SECRET",
+    "payez": "PAYEZ MAINTENANT",
+    "precedent": "Précedent",
+    "annuler": "Annuler",
+    "days": "JOURS"
+  },
+  "login": {
+    "input_login": "Entrez votre login",
+    "code_secret": "Code Secret",
+    "connecter": "SE CONNECTER",
+    "loss": "Mot de passe oublié ? ",
+    "action_loss": "Reintialisez mon mot de passe",
+    "creer_login": "INSCRIPTION",
+    "showpassword":"Voir le Mot de passe"
+  },
+  "register": {
+    "email": "Entrez votre Email",
+    "password": "Entrez votre Mot de Passe",
+    "cpassword": "Répétez votre Mot de Passe",
+    "register": "S'INSCRIRE",
+    "connect": "CONNEXION"
+  },
+  "resetpasswort": {
+    "email": "Entrez votre email",
+    "reset": "Reinitialiser",
+    "connect": "CONNEXION"
+  },
+  "no_connexion": {
+    "pas_connection": "Vérifiez Votre connexion internet"
+  },
+  "status": {
+    "succes": "Félicitations !",
+    "succes_text": " Votre souscription a bien été enregistrée.",
+    "succes_Atext": "Abonnement valide jusqu'au ",
+    "btn_goHome": "VOIR LES CARTOONS",
+    "btn_tryAgain": "REESSAYER",
+    "fail": "Désolé !",
+    "failText": "Votre abonnement n'a pas été pris en compte."
+  }
+}

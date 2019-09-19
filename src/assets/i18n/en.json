@@ -1,0 +1,76 @@
+{
+  "tabs": {
+    "acceuil": "Home",
+    "apropos": "About us",
+    "compte": "Account"
+  },
+  "home": {
+    "vue": "Views",
+    "genre": "Type",
+    "auteur": "Author",
+    "pour_abonner": "Subscribe"
+  },
+  "compte": {
+    "langue": "Language",
+    "like": "Like our Facebook page",
+    "share": "Share Elitoon",
+    "apropos": "About us",
+    "deconnecter": "Log out",
+    "sabonner": "Subscribe",
+    "condition": "Terms of use and conditions",
+    "finabonned": "Subscription expired",
+    "noabonned": "not user yet",
+    "noabonned_": "To see more, subscribe"
+  },
+  "search": {
+    "searchbar": "Search video",
+    "annuler": "Cancel"
+  },
+  "wizart": {
+    "or": "OR",
+    "money": "MOBILE MONEY",
+    "operateur": "Choose your mobile network",
+    "num_paie_place": " Mobile number",
+    "alert_paie": "Subscriber Mobile number !!!!",
+    "alert_code": "code required !!!!",
+    "num_code_place": "Type code",
+    "num_code_texte": "Secret code reception number",
+    "payez": "PAY NOW",
+    "precedent": "Back",
+    "annuler": "Cancel",
+    "days": "DAYS"
+  },
+  "login": {
+    "input_login": "Login",
+    "code_secret": "Code Secret",
+    "connecter": "Login",
+    "loss": "Password Forgotten ? ",
+    "action_loss": "Reset password",
+    "creer_login": "Sign in",
+    "showpassword":"Show Password"
+  },
+  "register": {
+    "email": "Email",
+    "password": "Password",
+    "cpassword": "Repeat Password",
+    "register": "Sign in",
+    "connect": "Connexion"
+  },
+  "resetpasswort": {
+    "email": "Email",
+    "reset": "Reset",
+    "connect": "OK"
+  },
+  "no_connexion": {
+    "pas_connection": "No network, connection failed"
+  },
+  "status": {
+    "succes": "Congratulations !",
+    "succes_text": "Account created ",
+    "succes_Atext": "Expire on ",
+    "btn_goHome": "SEE CARTOONS",
+    "btn_tryAgain": "TRY AGAIN",
+    "fail": "Sorry !",
+    "failText": "Subscription failed."
+  }
+}
